@@ -1,8 +1,16 @@
-import { Controller, Post, Body, Get, ValidationPipe } from '@nestjs/common';
+import {
+  Controller,
+  Post,
+  Body,
+  Get,
+  ValidationPipe,
+  UseGuards,
+} from '@nestjs/common';
 import { UsersService } from '../users/users.service';
 import { CreateUserDto } from '../users/dto/create-user.dto';
 // import { SignInDto } from '../users/dto/signIn-user.dto';
-import { User } from '../users/schemas/user.schema';
+// import { User } from '../users/schemas/user.schema';
+import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
 
 @Controller('auth')
@@ -12,9 +20,10 @@ export class AuthController {
     private readonly authService: AuthService,
   ) {}
 
-  @Get()
-  getUsers(): Promise<User[]> {
-    return this.usersService.findAll();
+  @UseGuards(AuthGuard)
+  @Get('profile')
+  getAccess() {
+    return 'Your in buddy';
   }
 
   @Post('signup')
@@ -26,7 +35,10 @@ export class AuthController {
 
   @Post('login')
   async logIn(@Body() signInDto: Record<string, any>) {
-    const user = await this.authService.signIn(signInDto.email);
+    const user = await this.authService.signIn(
+      signInDto.email,
+      signInDto.password,
+    );
     if (user) {
       return user;
     } else {
