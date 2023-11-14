@@ -8,8 +8,6 @@ import {
 } from '@nestjs/common';
 import { UsersService } from '../users/users.service';
 import { CreateUserDto } from '../users/dto/create-user.dto';
-// import { SignInDto } from '../users/dto/signIn-user.dto';
-// import { User } from '../users/schemas/user.schema';
 import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
 
