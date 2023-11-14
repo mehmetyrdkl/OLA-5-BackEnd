@@ -1,5 +1,9 @@
 import { Model } from 'mongoose';
-import { Injectable } from '@nestjs/common';
+import {
+  Injectable,
+  ConflictException,
+  NotFoundException,
+} from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import * as bcrypt from 'bcrypt';
 import { User } from './schemas/user.schema';
@@ -9,23 +13,44 @@ import { CreateUserDto } from './dto/create-user.dto';
 export class UsersService {
   constructor(@InjectModel(User.name) private userModel: Model<User>) {}
 
-  //Signup
+  // Signup
   async create(createUserDto: CreateUserDto): Promise<User> {
-    const { password, ...rest } = createUserDto;
+    const { email, password, ...rest } = createUserDto;
+
+    // Check if the email is already in use
+    const existingUser = await this.userModel.findOne({ email }).exec();
+    if (existingUser) {
+      throw new ConflictException('Email address is already in use');
+    }
+
     const saltRounds = 10;
     const hashedPassword = await bcrypt.hash(password, saltRounds);
     const createdUser = new this.userModel({
       ...rest,
+      email,
       password: hashedPassword,
     });
-    return createdUser.save();
+
+    // Save the new user to the database
+    try {
+      return await createdUser.save();
+    } catch (error) {
+      // Handle any database save errors here
+      throw new ConflictException('Error creating user');
+    }
   }
-  //GetAll
+
+  // GetAll
   async findAll(): Promise<User[]> {
     return this.userModel.find().exec();
   }
+
   // findOne
   async findOne(email: string): Promise<User | undefined> {
-    return this.userModel.findOne({ email }).exec();
+    const user = await this.userModel.findOne({ email }).exec();
+    if (!user) {
+      throw new NotFoundException('User not found');
+    }
+    return user;
   }
 }
