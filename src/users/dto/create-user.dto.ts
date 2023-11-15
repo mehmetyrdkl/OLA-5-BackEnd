@@ -8,4 +8,10 @@ export class CreateUserDto {
 
   @MinLength(3)
   password: string;
+
+  @MinLength(6)
+  phoneNumber: number;
+
+  @MinLength(3)
+  address: string;
 }
