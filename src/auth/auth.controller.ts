@@ -26,7 +26,6 @@ export class AuthController {
 
   @Post('signup')
   signUp(@Body(new ValidationPipe()) createUserDto: CreateUserDto) {
-    console.log(createUserDto);
     // If email does not exist, proceed
     return this.usersService.create(createUserDto);
   }
