@@ -9,7 +9,7 @@ import { HotelsModule } from './hotels/hotels.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost/comwell'),
+    MongooseModule.forRoot('mongodb://127.0.0.1:27017/comwell'),
     UsersModule,
     AuthModule,
     BookingModule,
