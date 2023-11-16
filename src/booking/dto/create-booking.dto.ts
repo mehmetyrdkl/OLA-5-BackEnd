@@ -1,7 +1,7 @@
 export class CreateBookingDto {
   user_id: string;
   hotel_name: string;
-  room_number: number;
+  room_type: string;
   booking_dates: {
     check_in: Date;
     check_out: Date;

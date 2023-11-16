@@ -11,7 +11,7 @@ export class Booking {
   hotel_name: string;
 
   @Prop({ required: true })
-  room_number: number;
+  room_type: string;
 
   @Prop({
     required: true,

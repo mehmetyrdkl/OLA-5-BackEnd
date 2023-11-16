@@ -10,8 +10,14 @@ export class CreateUserDto {
   password: string;
 
   @MinLength(6)
-  phoneNumber: number;
+  phoneNumber: string;
 
-  @MinLength(3)
-  address: string;
+  @MinLength(4)
+  gender: string;
+
+  @MinLength(4)
+  zipcode: string;
+
+  @IsNotEmpty()
+  birthdate: string;
 }

@@ -20,6 +20,18 @@ export class Hotel {
   @Prop({ required: true })
   hotelImage: string;
 
+  @Prop({ required: true })
+  hotelAddress: string;
+
+  @Prop({ required: true })
+  hotelPostcode: number;
+
+  @Prop({ required: true })
+  hotelCity: string;
+
+  @Prop({ required: true })
+  hotelCountry: string;
+
   @Prop({
     type: [
       {

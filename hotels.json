@@ -5,6 +5,10 @@
        "description":"City, Design and Culture",
        "location":"Aarhus",
        "hotelImage":"https://cdn.dwarf.dk/comwell-cms-production/img/containers/main/hoteller/caa/udefra/comwell-aarhus-bygning.jpg/c4677c907569793b5e2e89ef52b55da4.webp",
+       "hotelAddress": "Værkmestergade 2",
+       "hotelPostcode": 8000,
+       "hotelCity": "Aarhus",
+       "hotelCountry": "Denmark",
        "rooms":[
           {
              "type":"Single Room",
@@ -76,6 +80,10 @@
        "description:":"Historic atmosphere in beautiful nature",
        "location":"Horsens",
        "image":"https://cdn.dwarf.dk/comwell-cms-production/img/containers/main/hoteller/cbp/comwell_bygholm_park_front.jpg/a6fbffaf794d23b2abb8755926486ef1.webp",
+       "hotelAddress": "Schüttesvej 6",
+       "hotelPostcode": 8600,
+       "hotelCity": "Horsens",
+       "hotelCountry": "Denmark",
        "rooms":[
           {
              "type":"Single Room",
@@ -147,6 +155,10 @@
        "description":"Taste experiences, nature and spa",
        "location":"Snekkersten",
        "image":"https://cdn.dwarf.dk/comwell-cms-production/img/containers/main/hoteller/cbo/udendoers/comwell-borupgaard-ude-03.jpg/ee4b9a8df6af6fd2b6729000290fda4e.webp",
+       "hotelAddress": "Nørrevej 80",
+       "hotelPostcode": 3070,
+       "hotelCity": "Snekkersten",
+       "hotelCountry": "Denmark",
        "rooms":[
           {
              "type":"Single Room",
@@ -218,6 +230,10 @@
        "description":"Urban and delicate in the lively Nordhavn",
        "location":"Nordhavn",
        "image":"https://cdn.dwarf.dk/comwell-cms-production/img/containers/main/hoteller/ccp/comwell-portside-06.jpg/6a816480ae65dd072c336e45366d915e.webp",
+       "hotelAddress": "Alexandriagade 1",
+       "hotelPostcode": 2150,
+       "hotelCity": "Copenhagen",
+       "hotelCountry": "Denmark",
        "rooms":[
           {
              "type":"Single Room",
@@ -289,6 +305,10 @@
        "description":"In the heart of Odense",
        "location":"Odense",
        "image":"https://cdn.dwarf.dk/comwell-cms-production/img/containers/main/hoteller/chc/reception/comwell-hca-odense-reception-01.jpg/e48f708d9b4b390b6d03d34e1c964d57.webp",
+       "hotelAddress": "Claus Bergs Gade 7",
+       "hotelPostcode": 5000,
+       "hotelCity": "Odense",
+       "hotelCountry": "Denmark",
        "rooms":[
           {
              "type":"Single Room",
@@ -360,6 +380,10 @@
        "description":"Pampering, presence and aesthetics",
        "location":"Middelfart",
        "image":"https://cdn.dwarf.dk/comwell-cms-production/img/containers/main/hoteller/ckg/rs23582_kongebrogaarden-026-original.jpg/94c4aea04a8a530f444572fbc53f31c9.webp",
+       "hotelAddress": "Karensmindevej 3",
+       "hotelPostcode": 5500,
+       "hotelCity": "Middelfart",
+       "hotelCountry": "Denmark",
        "rooms":[
           {
              "type":"Single Room",
