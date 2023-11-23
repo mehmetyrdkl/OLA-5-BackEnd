@@ -44,6 +44,7 @@ export class Hotel {
         facilities: [String],
         price: Number,
         roomImage: String,
+        roomImage2: String,
         size: Number,
       },
     ],
@@ -56,6 +57,7 @@ export class Hotel {
     facilities: string[];
     price: number;
     roomImage: string;
+    roomImage2: string;
     size: number;
   }[];
 }
