@@ -5,6 +5,7 @@ import {
   Get,
   ValidationPipe,
   UseGuards,
+  Param,
 } from '@nestjs/common';
 import { UsersService } from '../users/users.service';
 import { CreateUserDto } from '../users/dto/create-user.dto';
@@ -21,7 +22,15 @@ export class AuthController {
   @UseGuards(AuthGuard)
   @Get('profile')
   getAccess() {
-    return 'Your in buddy';
+    return { message: "You're in buddy" };
+  }
+
+  @UseGuards(AuthGuard)
+  @Get(':id')
+  getUserById(@Param('id') id: string) {
+    // Assuming userService.getUserById(id) fetches the user by ID from a data source
+    const user = this.usersService.getUserById(id);
+    return user; // Assuming user is an object containing user data
   }
 
   @Post('signup')
