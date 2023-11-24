@@ -53,4 +53,16 @@ export class UsersService {
     }
     return user;
   }
+
+  // findOneById
+  async getUserById(id: string): Promise<User | null> {
+    try {
+      const user = await this.userModel.findById(id).exec();
+      return user;
+    } catch (error) {
+      // Handle errors (e.g., database errors)
+      console.error('Error retrieving user by ID:', error);
+      return null;
+    }
+  }
 }
