@@ -4,11 +4,13 @@ import { BookingService } from './booking.service';
 import { UsersModule } from 'src/users/users.module';
 import { Booking, BookingSchema } from './schemas/booking.schema';
 import { MongooseModule } from '@nestjs/mongoose';
+import { AuthModule } from 'src/auth/auth.module';
 
 @Module({
   imports: [
     MongooseModule.forFeature([{ name: Booking.name, schema: BookingSchema }]),
     UsersModule,
+    AuthModule,
   ],
   controllers: [BookingController],
   providers: [BookingService],

@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Post, Get, Headers } from '@nestjs/common';
 import { BookingService } from './booking.service';
 import { CreateBookingDto } from './dto/create-booking.dto';
 
@@ -19,6 +19,12 @@ export class BookingController {
 
   // GET /bookings/user/:userId
   // Retrieve details for a specific booking.
+
+  // @UseGuards(AuthGuard)
+  @Get()
+  async getBookings(@Headers('authorization') token: string) {
+    return this.bookingService.getBookingByUserId(token);
+  }
 
   // ## OPTIONAL ENDPOINTS
   // PUT /bookings/:bookingId
