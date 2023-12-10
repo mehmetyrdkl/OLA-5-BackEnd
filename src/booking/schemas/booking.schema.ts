@@ -14,7 +14,11 @@ export class Booking {
   @Prop({
     type: [
       {
-        room_type: { type: String, required: true },
+        room_type: {
+          type: String,
+          enum: ['Single Room', 'Double Room', 'Suite'],
+          require: true,
+        },
         addons: [
           {
             type: String,
