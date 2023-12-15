@@ -3,6 +3,7 @@ import {
   Injectable,
   BadRequestException,
   NotFoundException,
+  InternalServerErrorException,
 } from '@nestjs/common';
 import { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
@@ -70,7 +71,11 @@ export class BookingService {
 
       return bookings;
     } catch (error) {
-      throw new BadRequestException({
+      if (error instanceof NotFoundException) {
+        throw error; // Re-throw the NotFoundException
+      }
+
+      throw new InternalServerErrorException({
         status: 500,
         message: 'Internal Server Error',
       });
