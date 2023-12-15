@@ -1,10 +1,5 @@
 // bookings.service.ts
-import {
-  Injectable,
-  BadRequestException,
-  NotFoundException,
-  InternalServerErrorException,
-} from '@nestjs/common';
+import { Injectable, BadRequestException } from '@nestjs/common';
 import { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
 import { Booking, BookingDocument } from './schemas/booking.schema';
@@ -63,19 +58,12 @@ export class BookingService {
         .exec();
 
       if (!bookings || bookings.length === 0) {
-        throw new NotFoundException({
-          status: 404,
-          message: 'Bookings not found',
-        });
+        return [];
       }
 
       return bookings;
     } catch (error) {
-      if (error instanceof NotFoundException) {
-        throw error; // Re-throw the NotFoundException
-      }
-
-      throw new InternalServerErrorException({
+      throw new BadRequestException({
         status: 500,
         message: 'Internal Server Error',
       });
