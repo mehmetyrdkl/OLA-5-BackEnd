@@ -28,14 +28,12 @@ export class AuthController {
   @UseGuards(AuthGuard)
   @Get(':id')
   getUserById(@Param('id') id: string) {
-    // Assuming userService.getUserById(id) fetches the user by ID from a data source
     const user = this.usersService.getUserById(id);
-    return user; // Assuming user is an object containing user data
+    return user;
   }
 
   @Post('signup')
   signUp(@Body(new ValidationPipe()) createUserDto: CreateUserDto) {
-    // If email does not exist, proceed
     return this.usersService.create(createUserDto);
   }
 
@@ -48,7 +46,6 @@ export class AuthController {
     if (user) {
       return user;
     } else {
-      // Handle the case where user is not found (e.g., return an error response)
       return { error: 'User not found' };
     }
   }

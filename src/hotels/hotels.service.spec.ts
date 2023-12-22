@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { HotelsController } from './hotels.controller';
 import { HotelsService } from './hotels.service';
-import { getModelToken } from '@nestjs/mongoose'; // Import getModelToken from @nestjs/mongoose
+import { getModelToken } from '@nestjs/mongoose';
 
 describe('HotelsController', () => {
   let controller: HotelsController;
@@ -13,7 +13,7 @@ describe('HotelsController', () => {
       providers: [
         HotelsService,
         {
-          provide: getModelToken('Hotel'), // Provide the model token for 'Hotel'
+          provide: getModelToken('Hotel'),
           useValue: [
             {
               _id: {
@@ -116,7 +116,7 @@ describe('HotelsController', () => {
               ],
               __v: 0,
             },
-          ], // Mock or stub HotelModel here
+          ],
         },
       ],
     }).compile();
@@ -131,12 +131,4 @@ describe('HotelsController', () => {
   it('should be defined', () => {
     expect(controller).toBeDefined();
   });
-
-  //   it('should return an array of hotels', async () => {
-  //     const hotels = await controller.getHotels();
-  //     expect(hotels).toBeDefined();
-  //     // Add more specific assertions based on your expected response structure
-  //     // For example, you can check if the returned array has a certain length
-  //     // Or check if certain fields are present in each hotel object
-  //   });
 });

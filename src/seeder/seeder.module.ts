@@ -6,9 +6,8 @@ import { Hotel, HotelSchema } from '../hotels/schemas/hotels.schema'; // Update 
 @Module({
   imports: [
     MongooseModule.forFeature([{ name: Hotel.name, schema: HotelSchema }]),
-    // Any other modules or dependencies needed for seeding can be imported here
   ],
   providers: [SeederService],
-  exports: [SeederService], // Export the service if needed elsewhere
+  exports: [SeederService],
 })
 export class SeederModule {}

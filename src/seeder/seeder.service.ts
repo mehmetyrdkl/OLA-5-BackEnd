@@ -11,9 +11,7 @@ export class SeederService {
 
   async seedDatabase(): Promise<void> {
     try {
-      // Sample hotel data
       const hotels = [
-        // Define your hotel objects here...
         {
           name: 'Aarhus',
           region: 'Jutland',
@@ -100,7 +98,6 @@ export class SeederService {
                 'https://cdn.dwarf.dk/comwell-cms-production/img/containers/main/hoteller/cbo/vaerelser/comwell-borupgaard-subo-02.jpg/1992cf048d82fa55bded365e9e5b1e12.webp',
               size: 66,
             },
-            // Add more room objects as needed
           ],
           welcome:
             "Comwell Aarhus welcomes you to a world of design, quality and well-being with the city's best view of the harbour, forest and beach. A hotel stay in Aarhus welcomes you with endless possibilities for entertainment and unique experiences.\n\nThe hotel is located at one of the city's most central addresses close to the centrum and the station.",

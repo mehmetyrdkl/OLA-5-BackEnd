@@ -31,11 +31,9 @@ export class UsersService {
       password: hashedPassword,
     });
 
-    // Save the new user to the database
     try {
       return await createdUser.save();
     } catch (error) {
-      // Handle any database save errors here
       throw new ConflictException('Error creating user');
     }
   }
@@ -60,7 +58,6 @@ export class UsersService {
       const user = await this.userModel.findById(id).exec();
       return user;
     } catch (error) {
-      // Handle errors (e.g., database errors)
       console.error('Error retrieving user by ID:', error);
       return null;
     }

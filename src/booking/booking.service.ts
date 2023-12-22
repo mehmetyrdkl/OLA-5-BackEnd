@@ -20,7 +20,7 @@ export class BookingService {
       return await createdBooking.save();
     } catch (error) {
       if (error instanceof BadRequestException) {
-        throw error; // Re-throw BadRequestException, which includes the validation details
+        throw error;
       }
       if (error.name === 'ValidationError' && error.errors) {
         const validationErrors = Object.keys(error.errors).map((field) => ({

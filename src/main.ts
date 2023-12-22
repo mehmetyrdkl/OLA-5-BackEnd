@@ -7,10 +7,9 @@ import * as express from 'express';
 async function bootstrap() {
   const app = await NestFactory.create(
     AppModule,
-    new ExpressAdapter(express()), // Using Express instance
+    new ExpressAdapter(express()),
   );
 
-  // Enable CORS for all origins
   app.enableCors();
 
   const seederService = app.get(SeederService);
