@@ -9,6 +9,7 @@ import {
 } from '@nestjs/common';
 import { UsersService } from '../users/users.service';
 import { CreateUserDto } from '../users/dto/create-user.dto';
+import { SignInDto } from '../users/dto/signIn-user.dto';
 import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
 
@@ -38,7 +39,7 @@ export class AuthController {
   }
 
   @Post('login')
-  async logIn(@Body() signInDto: Record<string, any>) {
+  async logIn(@Body(new ValidationPipe()) signInDto: SignInDto) {
     const user = await this.authService.signIn(
       signInDto.email,
       signInDto.password,
